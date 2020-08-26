@@ -10,10 +10,11 @@ const connect = () => {
 
 	conn.on('connect', () => {
 		console.log('Successfully connected to game server');
-	});
-
-	conn.on('connect', () => {
 		conn.write('Name: AIS');
+		//hard-coded
+		// setInterval(() => {
+		// 	conn.write('Move: down');
+		// }, 500);
 	});
 
 	// detecting incoming data from the server then log the data
