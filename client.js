@@ -1,16 +1,18 @@
 const net = require('net');
+const { IP, PORT } = require('./constants');
+const name = process.argv.slice(2);
 
 const connect = () => {
 	const conn = net.createConnection({
-		host: '135.23.222.131',
-		port: 50542,
+		host: IP,
+		port: PORT,
 	});
 
 	conn.setEncoding('utf8');
 
 	conn.on('connect', () => {
 		console.log('Successfully connected to game server');
-		conn.write('Name: AIS');
+		conn.write(`Name: ${name}`);
 		//hard-coded
 		// setInterval(() => {
 		// 	conn.write('Move: down');
